@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Cairo:wght@200..1000&display=swap');
+
+* {
+    font-family: "Anta", serif;
+    font-style: normal;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.bg-bg {
+    z-index: -100;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #ffffff, #666666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.neural-bg {
+    background: radial-gradient(circle at 50% 50%, rgba(38, 38, 38, 0.7) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+/* Loading Screen Styles */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    z-index: 1000;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+}
+
+#logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+}
+
+/* Animations for the loading screen */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes moveLogoUp {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+    100% { transform: translateY(-50px); }
+}
+
+@keyframes revealText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+#logo {
+    animation: fadeIn 1s ease-in-out forwards, moveLogoUp 2s ease-in-out 1s forwards;
+}
+
+#logo-text {
+    animation: revealText 1s ease-in-out 2s forwards;
+}
+
+#loading-screen {
+    animation: fadeOut 1s ease-in-out 3s forwards;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Enable scrolling */
+.scroll-enabled {
+    overflow: auto;
+}
+
+
+.center-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.bg-first {
+    box-shadow: inset -5px -100px 67px #000000
+}
